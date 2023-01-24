@@ -70,3 +70,36 @@ def login_view(request):
 class CustomLogoutView(LogoutView):
     template_name = 'usuario/logout.html'
 
+
+
+#EDITAR USUARIO
+class ProfileUpdateView(LoginRequiredMixin, UpdateView):
+    model = User
+    form_class = UserUpdateForm
+    success_url = reverse_lazy('inicio')
+    template_name = 'usuario/editar_perfil.html'
+    def get_object(self, queryset=None):
+        return self.request.user
+
+
+
+
+#AVATAR
+
+def agregar_avatar(request):
+    if request.method == "POST":
+        formulario = AvatarFormulario(request.POST, request.FILES) # Aquí me llega toda la info del formulario html
+
+        if formulario.is_valid():
+            avatar = formulario.save()
+            avatar.user = request.user
+            avatar.save()
+            url_exitosa = reverse('inicio')
+            return redirect(url_exitosa)
+    else:  # GET
+        formulario = AvatarFormulario()
+    return render(
+        request=request,
+        template_name='usuario/formulario_avatar.html',
+        context={'form': formulario},
+    )

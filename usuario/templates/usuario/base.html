@@ -48,8 +48,35 @@
             <a class="navbar-brand" href="{% url 'heladeras' %}">Heladeras</a>
             <a class="navbar-brand" href="{% url 'lavarropas' %}">Lavarropas</a>
             <div>{% block buscar %} {% endblock buscar%}</div>
-        </div>
-        
+            {% if user.is_authenticated %}
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                        <div style="display: inline-flex;">
+                            <span style="padding: 0px 30px 0px 0px;">{{ user.username }}</span>
+                            <div>
+                                <img src="{{ user.avatar.imagen.url }}" style="width:50px;"/>
+                            </div>
+                        </div>
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                        <li>
+                            <a class="dropdown-item" href="{% url 'editar_perfil' %}">Editar mis datos</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="{% url 'agregar_avatar' %}">Agregar Avatar</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="{% url 'logout' %}"><strong>Cerrar Sesión</strong></a></li>
+                        </li>
+                    </ul>
+                  </div>
+                </div>
+                {% else %}
+                <a class="btn btn-primary" href="{% url 'login' %}">Iniciar sesión</a>
+                <a class="btn btn-secondary" href="{% url 'registro' %}">Registro</a>
+                {% endif %}
+            </div>
+            
     </nav>
 
     <section style="padding:80px 50px;">

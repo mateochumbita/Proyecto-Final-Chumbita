@@ -14,7 +14,7 @@ class Celular(models.Model):
     telefonoContacto = models.IntegerField()
     emailContacto = models.EmailField()
     imagen = models.ImageField(
-        null=True, blank=True, upload_to="media/imagenes/")
+        null=True, blank=True, upload_to="imagenes/")
 
     def __str__(self):
         return f" {self.titulo}, {self.modelo},  {self.precio}, {self.imagen}"
@@ -32,7 +32,7 @@ class Notebook(models.Model):
     fechaPublicacion = models.DateTimeField(auto_now_add=True)
     telefonoContacto = models.IntegerField()
     emailContacto = models.EmailField()
-    imagen = models.ImageField(null=True, blank=True, upload_to="media/imagenes/")
+    imagen = models.ImageField(null=True, blank=True, upload_to="imagenes/")
 
     def __str__(self):
         return f" {self.titulo}, {self.modelo},  {self.precio}, {self.imagen}"
@@ -49,7 +49,7 @@ class Televisor(models.Model):
     fechaPublicacion = models.DateTimeField(auto_now_add=True)
     telefonoContacto = models.IntegerField()
     emailContacto = models.EmailField()
-    imagen = models.ImageField(null=True, blank=True, upload_to="media/imagenes/")
+    imagen = models.ImageField(null=True, blank=True, upload_to="imagenes/")
 
     def __str__(self):
         return f" {self.titulo}, {self.modelo},  {self.precio}, {self.imagen}"
@@ -66,7 +66,7 @@ class Heladera(models.Model):
     fechaPublicacion = models.DateTimeField(auto_now_add=True)
     telefonoContacto = models.IntegerField()
     emailContacto = models.EmailField()
-    imagen = models.ImageField(null=True, blank=True, upload_to="media/imagenes/")
+    imagen = models.ImageField(null=True, blank=True, upload_to='imagenes')
 
     def __str__(self):
         return f" {self.titulo}, {self.modelo},  {self.precio}, {self.imagen}"
@@ -83,7 +83,7 @@ class Lavarropa(models.Model):
     fechaPublicacion = models.DateTimeField(auto_now_add=True)
     telefonoContacto = models.IntegerField()
     emailContacto = models.EmailField()
-    imagen = models.ImageField(null=True, blank=True, upload_to="imagenes")
+    imagen = models.ImageField(null=True, blank=True, upload_to="imagenes/")
 
     def __str__(self):
         return f" {self.titulo}, {self.modelo},  {self.precio}, {self.imagen}"
