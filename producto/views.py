@@ -13,7 +13,7 @@ from producto.models import *
 
 from producto.forms import *
 
-
+@login_required
 def celular(request):
     contexto = {
         'celulares': Celular.objects.all()
@@ -21,7 +21,7 @@ def celular(request):
     return render(request=request, template_name='producto/celulares.html',
      context=contexto )
 
-
+@login_required
 def notebook(request):
     contexto = {
         'notebooks': Notebook.objects.all()
@@ -29,6 +29,8 @@ def notebook(request):
     return render(request=request, template_name='producto/notebooks.html',
      context=contexto )
 
+
+@login_required
 def televisor(request):
     contexto = {
         'televisores': Televisor.objects.all()
@@ -37,7 +39,7 @@ def televisor(request):
      context=contexto )
 
 
-
+@login_required
 def heladera(request):
     contexto = {
         'heladeras': Heladera.objects.all()
@@ -45,6 +47,8 @@ def heladera(request):
     return render(request=request, template_name='producto/heladeras.html',
      context=contexto )
 
+
+@login_required
 def lavarropa(request):
     contexto = {
         'lavarropas': Lavarropa.objects.all()
@@ -73,14 +77,11 @@ class NotebookCreateView(LoginRequiredMixin, CreateView):
     template_name = "producto/formulario_notebook.html"
 
 
-
-
 class TelevisorCreateView(LoginRequiredMixin, CreateView):
     model = Televisor
     fields = ['usuario', 'titulo', 'marca', 'modelo', 'descripcion', 'year', 'precio', 'telefonoContacto', 'emailContacto', 'imagen']
     success_url = reverse_lazy('televisores')
     template_name = "producto/formulario_televisor.html"
-
 
 class HeladeraCreateView(LoginRequiredMixin, CreateView):
     model = Heladera
