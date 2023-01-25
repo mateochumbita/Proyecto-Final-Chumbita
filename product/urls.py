@@ -1,8 +1,8 @@
 from django.contrib import admin
 from django.urls import path
 
-from producto.views import *
-from producto.forms import *
+from product.views import *
+from product.forms import *
 
 urlpatterns = [
 #PRODUCTOS
@@ -21,6 +21,8 @@ path('publicar-celular/', CelularCreateView.as_view(), name="publicar_celular"),
 path('publicar-notebook/', NotebookCreateView.as_view(), name="publicar_notebook"),
 path('publicar-televisor/', TelevisorCreateView.as_view(), name="publicar_televisor"),
 path('publicar-heladera/', HeladeraCreateView.as_view(), name="publicar_heladera"),
+#DETALLE DE PRODUCTO
+path('detalle-celular/<int:pk>/', CelularDetailView.as_view(), name='ver_celular'),
 
     
 ]

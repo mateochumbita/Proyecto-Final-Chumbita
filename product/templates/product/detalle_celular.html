@@ -1,0 +1,19 @@
+{% extends "usuario/base.html" %}
+
+
+{% block contenido %}
+
+
+        
+<h1>Detalles del producto</h1>
+<h3> {{ celular.titulo }}</h3>
+<img src="{{ celular.imagen.url }}" alt="">
+<p>Marca: {{ celular.marca}}</p>
+<p>Modelo: {{ celular.modelo}}</p>
+<p>Descripción: {{ celular.descripcion}}</p>
+<p>Año: {{ celular.year}}</p>
+<p>Precio: {{celular.precio}}</p>
+<p>Teléfono: {{celular.telefonoContacto}} </p>
+<p>Email: {{celular.emailContacto}} </p>
+
+{% endblock contenido %}

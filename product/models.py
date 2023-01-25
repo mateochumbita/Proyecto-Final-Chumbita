@@ -1,4 +1,7 @@
 from django.db import models
+
+
+
 from django.contrib.auth.models import User
 from usuario.views import *
 
@@ -14,7 +17,7 @@ class Celular(models.Model):
     telefonoContacto = models.IntegerField()
     emailContacto = models.EmailField()
     imagen = models.ImageField(
-        null=True, blank=True, upload_to="imagenes/")
+        null=True, blank=True, upload_to="imagen_celular/")
 
     def __str__(self):
         return f" {self.titulo}, {self.modelo},  {self.precio}, {self.imagen}"
@@ -32,7 +35,7 @@ class Notebook(models.Model):
     fechaPublicacion = models.DateTimeField(auto_now_add=True)
     telefonoContacto = models.IntegerField()
     emailContacto = models.EmailField()
-    imagen = models.ImageField(null=True, blank=True, upload_to="imagenes/")
+    imagen = models.ImageField(null=True, blank=True, upload_to="imagen_notebook/")
 
     def __str__(self):
         return f" {self.titulo}, {self.modelo},  {self.precio}, {self.imagen}"
@@ -49,7 +52,7 @@ class Televisor(models.Model):
     fechaPublicacion = models.DateTimeField(auto_now_add=True)
     telefonoContacto = models.IntegerField()
     emailContacto = models.EmailField()
-    imagen = models.ImageField(null=True, blank=True, upload_to="imagenes/")
+    imagen = models.ImageField(null=True, blank=True, upload_to="imagen_televisor/")
 
     def __str__(self):
         return f" {self.titulo}, {self.modelo},  {self.precio}, {self.imagen}"
@@ -66,7 +69,7 @@ class Heladera(models.Model):
     fechaPublicacion = models.DateTimeField(auto_now_add=True)
     telefonoContacto = models.IntegerField()
     emailContacto = models.EmailField()
-    imagen = models.ImageField(null=True, blank=True, upload_to='imagenes')
+    imagen = models.ImageField(null=True, blank=True, upload_to='imagen_heladera')
 
     def __str__(self):
         return f" {self.titulo}, {self.modelo},  {self.precio}, {self.imagen}"
@@ -83,7 +86,7 @@ class Lavarropa(models.Model):
     fechaPublicacion = models.DateTimeField(auto_now_add=True)
     telefonoContacto = models.IntegerField()
     emailContacto = models.EmailField()
-    imagen = models.ImageField(null=True, blank=True, upload_to="imagenes/")
+    imagen = models.ImageField(null=True, blank=True, upload_to="imagen_lavarropa")
 
     def __str__(self):
         return f" {self.titulo}, {self.modelo},  {self.precio}, {self.imagen}"

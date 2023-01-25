@@ -1,0 +1,16 @@
+{% extends "usuario/base.html" %}
+
+{% block contenido %}
+<h1>Notebooks</h1>
+
+{% for notebook in notebooks %}
+{{ notebook.modelo }}
+
+{{ notebook.imagen_notebook.url }}
+<img src="{{ notebook.imagen_notebook.url }}" alt="">
+
+
+
+{% endfor  %}
+        
+{% endblock contenido %}
