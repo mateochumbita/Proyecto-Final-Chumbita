@@ -24,6 +24,14 @@ path('publicar-heladera/', HeladeraCreateView.as_view(), name="publicar_heladera
 #DETALLE DE PRODUCTO
 path('detalle-celular/<int:pk>/', CelularDetailView.as_view(), name='ver_celular'),
 
+
+
+#EDITAR PRODUCTO
+path('editar-celular/<int:pk>/', CelularUpdateView.as_view(), name="editar_celular"),
+
+
+#ELIMINAR PRODUCTO
+path('eliminar-celular/<int:pk>/', CelularDeleteView.as_view(), name="eliminar_celular"),
     
 ]
 

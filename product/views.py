@@ -107,10 +107,10 @@ class LavarropaCreateView(LoginRequiredMixin, CreateView):
 
 class CelularDetailView(LoginRequiredMixin, DetailView):
     model = Celular
-    success_url = reverse_lazy('celulares/')
+    success_url = reverse_lazy('celulares')
     template_name = "product/detalle_celular.html"
 
-
+#EDITAR
 class CelularUpdateView(LoginRequiredMixin, UpdateView):
     model = Celular
     fields = ['usuario', 'titulo', 'marca', 'modelo', 'descripcion', 'year', 'precio', 'telefonoContacto', 'emailContacto', 'imagen']
@@ -118,4 +118,9 @@ class CelularUpdateView(LoginRequiredMixin, UpdateView):
     template_name = "product/editar_celular.html"
 
 
-#EDITAR
+#ELIMINAR
+class CelularDeleteView(LoginRequiredMixin, DeleteView):
+    model = Celular
+    success_url = reverse_lazy('celulares')
+    template_name = "product/confirmar_eliminacion_celular.html"
+
