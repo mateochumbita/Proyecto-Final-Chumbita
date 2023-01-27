@@ -1,0 +1,18 @@
+{% extends "usuario/base.html" %}
+
+{% block contenido %}
+
+
+        
+<h1>Detalles del producto</h1>
+<h3> {{ televisor.titulo }}</h3>
+<img src="{{ televisor.imagen.url }}" alt="">
+<p>Marca: {{ televisor.marca}}</p>
+<p>Modelo: {{ televisor.modelo}}</p>
+<p>Descripción: {{ televisor.descripcion}}</p>
+<p>Año: {{ televisor.year}}</p>
+<p>Precio: {{televisor.precio}}</p>
+<p>Teléfono: {{televisor.telefono}} </p>
+<p>Email: {{televisor.email}} </p>
+
+{% endblock contenido %}

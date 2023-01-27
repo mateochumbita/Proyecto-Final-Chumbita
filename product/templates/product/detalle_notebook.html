@@ -1,0 +1,18 @@
+{% extends "usuario/base.html" %}
+
+{% block contenido %}
+
+
+        
+<h1>Detalles del producto</h1>
+<h3> {{ notebook.titulo }}</h3>
+<img src="{{ notebook.imagen.url }}" alt="">
+<p>Marca: {{ notebook.marca}}</p>
+<p>Modelo: {{ notebook.modelo}}</p>
+<p>Descripción: {{ notebook.descripcion}}</p>
+<p>Año: {{ notebook.year}}</p>
+<p>Precio: {{notebook.precio}}</p>
+<p>Teléfono: {{notebook.telefono}} </p>
+<p>Email: {{notebook.email}} </p>
+
+{% endblock contenido %}

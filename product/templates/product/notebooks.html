@@ -1,16 +1,63 @@
 {% extends "usuario/base.html" %}
+{% block estilos %}
+
+
+
+
+
+.img_producto{
+    width: 100%;
+
+}
+
+
+.producto{
+    border: 1px solid gray;
+    border-radius: 15px;
+    padding: 10px;
+    font-weight: bold;
+    max-width: 500px;
+    justify-content: space-around;
+}
+.producto span{
+    font-weight: bold;
+}
+    
+
+{% endblock estilos %}
+
+
 
 {% block contenido %}
-<h1>Notebooks</h1>
+<h1>Lista Notebooks</h1>
 
-{% for notebook in notebooks %}
-{{ notebook.modelo }}
+<div class="container text-center">
+    <div class="row">
+            {% for notebook in notebooks %}
+            
+            <div class="producto col-sm-6 align-items-center">
+                <div class="card-body">
+                <img class="img_producto" src="{{notebook.imagen.url}}" alt="">
+                <span>{{notebook.modelo}}</span>
+                <hr>
+                <a  class="btn btn-primary" href="{% url 'ver_notebook' notebook.id %}">Ver más</a>
+                    {% if user.id == notebook.usuario.id %}
+                    <a  class="btn btn-success" href="{% url 'editar_notebook' notebook.id %}">Editar</a>
+                    <a  class="btn btn-danger" href="{% url 'eliminar_notebook' notebook.id %}">Eliminar</a>
+               
+                <br>
+                <br>
+                <br>
+                {% endif %}
+                </div>
+            </div>
+            {% endfor %}
 
-{{ notebook.imagen_notebook.url }}
-<img src="{{ notebook.imagen_notebook.url }}" alt="">
 
 
 
-{% endfor  %}
+
+
+
         
 {% endblock contenido %}

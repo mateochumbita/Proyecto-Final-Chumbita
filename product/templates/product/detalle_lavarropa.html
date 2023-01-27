@@ -1,0 +1,19 @@
+{% extends "usuario/base.html" %}
+
+
+{% block contenido %}
+
+
+        
+<h1>Detalles del producto</h1>
+<h3> {{ lavarropa.titulo }}</h3>
+<img src="{{ lavarropa.imagen.url }}" alt="">
+<p>Marca: {{ lavarropa.marca}}</p>
+<p>Modelo: {{ lavarropa.modelo}}</p>
+<p>Descripción: {{ lavarropa.descripcion}}</p>
+<p>Año: {{ lavarropa.year}}</p>
+<p>Precio: {{lavarropa.precio}}</p>
+<p>Teléfono: {{lavarropa.telefono}} </p>
+<p>Email: {{lavarropa.email}} </p>
+
+{% endblock contenido %}

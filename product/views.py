@@ -66,7 +66,7 @@ def lavarropa(request):
 
 class CelularCreateView(LoginRequiredMixin, CreateView):
     model = Celular
-    fields = ['usuario', 'titulo', 'marca', 'modelo', 'descripcion', 'year', 'precio', 'telefonoContacto', 'emailContacto', 'imagen']
+    fields = ['usuario', 'titulo', 'marca', 'modelo', 'descripcion', 'year', 'precio', 'telefono', 'email', 'imagen']
     success_url = reverse_lazy('celulares')
     template_name = "product/formulario_celular.html"
 
@@ -74,20 +74,20 @@ class CelularCreateView(LoginRequiredMixin, CreateView):
 
 class NotebookCreateView(LoginRequiredMixin, CreateView):
     model = Notebook
-    fields = ['usuario', 'titulo', 'marca', 'modelo', 'descripcion', 'year', 'precio', 'telefonoContacto', 'emailContacto', 'imagen']
+    fields = ['usuario', 'titulo', 'marca', 'modelo', 'descripcion', 'year', 'precio', 'telefono', 'email', 'imagen']
     success_url = reverse_lazy('notebooks')
     template_name = "product/formulario_notebook.html"
 
 
 class TelevisorCreateView(LoginRequiredMixin, CreateView):
     model = Televisor
-    fields = ['usuario', 'titulo', 'marca', 'modelo', 'descripcion', 'year', 'precio', 'telefonoContacto', 'emailContacto', 'imagen']
+    fields = ['usuario', 'titulo', 'marca', 'modelo', 'descripcion', 'year', 'precio', 'telefono', 'email', 'imagen']
     success_url = reverse_lazy('televisores')
     template_name = "product/formulario_televisor.html"
 
 class HeladeraCreateView(LoginRequiredMixin, CreateView):
     model = Heladera
-    fields = ['usuario', 'titulo', 'marca', 'modelo', 'descripcion', 'year', 'precio', 'telefonoContacto', 'emailContacto', 'imagen']
+    fields = ['usuario', 'titulo', 'marca', 'modelo', 'descripcion', 'year', 'precio', 'telefono', 'email', 'imagen']
     success_url = reverse_lazy('heladeras')
     template_name = "product/formulario_heladera.html"
 
@@ -96,9 +96,9 @@ class HeladeraCreateView(LoginRequiredMixin, CreateView):
 
 class LavarropaCreateView(LoginRequiredMixin, CreateView):
     model = Lavarropa
-    fields = ['usuario', 'titulo', 'marca', 'modelo', 'descripcion', 'year', 'precio', 'telefonoContacto', 'emailContacto', 'imagen']
+    fields = ['usuario', 'titulo', 'marca', 'modelo', 'descripcion', 'year', 'precio', 'telefono', 'email', 'imagen']
     success_url = reverse_lazy('lavarropas')
-    template_name = "producto/formulario_lavarropas.html"
+    template_name = "product/formulario_lavarropa.html"
 
 
 
@@ -109,18 +109,96 @@ class CelularDetailView(LoginRequiredMixin, DetailView):
     model = Celular
     success_url = reverse_lazy('celulares')
     template_name = "product/detalle_celular.html"
+    
+class NotebookDetailView(LoginRequiredMixin, DetailView):
+    model = Notebook
+    success_url = reverse_lazy('notebooks')
+    template_name = "product/detalle_notebook.html"
+
+
+class TelevisorDetailView(LoginRequiredMixin, DetailView):
+    model = Televisor
+    success_url = reverse_lazy('televisores')
+    template_name = "product/detalle_televisor.html"
+
+
+
+class HeladeraDetailView(LoginRequiredMixin, DetailView):
+    model = Heladera
+    success_url = reverse_lazy('heladeras')
+    template_name = "product/detalle_heladera.html"
+    
+    
+class LavarropaDetailView(LoginRequiredMixin, DetailView):
+    model = Lavarropa
+    success_url = reverse_lazy('lavarropas')
+    template_name = "product/detalle_lavarropa.html"
+    
+
 
 #EDITAR
 class CelularUpdateView(LoginRequiredMixin, UpdateView):
     model = Celular
-    fields = ['usuario', 'titulo', 'marca', 'modelo', 'descripcion', 'year', 'precio', 'telefonoContacto', 'emailContacto', 'imagen']
+    fields = ['usuario', 'titulo', 'marca', 'modelo', 'descripcion', 'year', 'precio', 'telefono', 'email', 'imagen']
     success_url = reverse_lazy('celulares')
     template_name = "product/editar_celular.html"
+
+
+class NotebookUpdateView(LoginRequiredMixin, UpdateView):
+    model = Notebook
+    fields = ['usuario', 'titulo', 'marca', 'modelo', 'descripcion', 'year', 'precio', 'telefono', 'email', 'imagen']
+    success_url = reverse_lazy('notebooks')
+    template_name = "product/editar_notebook.html"
+
+class TelevisorUpdateView(LoginRequiredMixin, UpdateView):
+    model = Televisor
+    fields = ['usuario', 'titulo', 'marca', 'modelo', 'descripcion', 'year', 'precio', 'telefono', 'email', 'imagen']
+    success_url = reverse_lazy('televisores')
+    template_name = "product/editar_televisor.html"
+
+
+class HeladeraUpdateView(LoginRequiredMixin, UpdateView):
+    model = Heladera
+    fields = ['usuario', 'titulo', 'marca', 'modelo', 'descripcion', 'year', 'precio', 'telefono', 'email', 'imagen']
+    success_url = reverse_lazy('heladeras')
+    template_name = "product/editar_heladera.html"
+
+
+class LavarropaUpdateView(LoginRequiredMixin, UpdateView):
+    model = Lavarropa
+    fields = ['usuario', 'titulo', 'marca', 'modelo', 'descripcion', 'year', 'precio', 'telefono', 'email', 'imagen']
+    success_url = reverse_lazy('lavarropas')
+    template_name = "product/editar_lavarropa.html"
+
+
+
+
 
 
 #ELIMINAR
 class CelularDeleteView(LoginRequiredMixin, DeleteView):
     model = Celular
     success_url = reverse_lazy('celulares')
-    template_name = "product/confirmar_eliminacion_celular.html"
+    template_name = "product/confirmar_eliminacion_notebook.html"
+    
+    
+class NotebookDeleteView(LoginRequiredMixin, DeleteView):
+    model = Notebook
+    success_url = reverse_lazy('notebooks')
+    template_name = "product/confirmar_eliminacion_notebook.html"
+    
+    
+class TelevisorDeleteView(LoginRequiredMixin, DeleteView):
+    model = Televisor
+    success_url = reverse_lazy('televisores')
+    template_name = "product/confirmar_eliminacion_televisor.html"
 
+class HeladeraDeleteView(LoginRequiredMixin, DeleteView):
+    model = Heladera
+    success_url = reverse_lazy('heladeras')
+    template_name = "product/confirmar_eliminacion_heladera.html"
+
+class LavarropaDeleteView(LoginRequiredMixin, DeleteView):
+    model = Lavarropa
+    success_url = reverse_lazy('lavarropas')
+    template_name = "product/confirmar_eliminacion_lavarropa.html"

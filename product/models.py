@@ -13,9 +13,9 @@ class Celular(models.Model):
     descripcion = models.TextField(null=True, blank=True)
     year = models.IntegerField() 
     precio = models.DecimalField(max_digits=10, decimal_places=2)
-    fechaPublicacion = models.DateTimeField(auto_now_add=True)
-    telefonoContacto = models.IntegerField()
-    emailContacto = models.EmailField()
+    fecha = models.DateTimeField(auto_now_add=True)
+    telefono = models.IntegerField()
+    email = models.EmailField()
     imagen = models.ImageField(
         null=True, blank=True, upload_to="imagen_celular/")
 
@@ -32,9 +32,9 @@ class Notebook(models.Model):
     descripcion = models.TextField(null=True, blank=True)
     year = models.IntegerField() 
     precio = models.DecimalField(max_digits=10, decimal_places=2)
-    fechaPublicacion = models.DateTimeField(auto_now_add=True)
-    telefonoContacto = models.IntegerField()
-    emailContacto = models.EmailField()
+    fecha = models.DateTimeField(auto_now_add=True)
+    telefono = models.IntegerField()
+    email= models.EmailField()
     imagen = models.ImageField(null=True, blank=True, upload_to="imagen_notebook/")
 
     def __str__(self):
@@ -49,9 +49,9 @@ class Televisor(models.Model):
     descripcion = models.TextField(null=True, blank=True)
     year = models.IntegerField() 
     precio = models.DecimalField(max_digits=10, decimal_places=2)
-    fechaPublicacion = models.DateTimeField(auto_now_add=True)
-    telefonoContacto = models.IntegerField()
-    emailContacto = models.EmailField()
+    fecha = models.DateTimeField(auto_now_add=True)
+    telefono = models.IntegerField()
+    email = models.EmailField()
     imagen = models.ImageField(null=True, blank=True, upload_to="imagen_televisor/")
 
     def __str__(self):
@@ -66,9 +66,9 @@ class Heladera(models.Model):
     descripcion = models.TextField(null=True, blank=True)
     year = models.IntegerField() 
     precio = models.DecimalField(max_digits=10, decimal_places=2)
-    fechaPublicacion = models.DateTimeField(auto_now_add=True)
-    telefonoContacto = models.IntegerField()
-    emailContacto = models.EmailField()
+    fecha = models.DateTimeField(auto_now_add=True)
+    telefono = models.IntegerField()
+    email = models.EmailField()
     imagen = models.ImageField(null=True, blank=True, upload_to='imagen_heladera')
 
     def __str__(self):
@@ -83,9 +83,9 @@ class Lavarropa(models.Model):
     descripcion = models.TextField(null=True, blank=True)
     year = models.IntegerField() 
     precio = models.DecimalField(max_digits=10, decimal_places=2)
-    fechaPublicacion = models.DateTimeField(auto_now_add=True)
-    telefonoContacto = models.IntegerField()
-    emailContacto = models.EmailField()
+    fecha = models.DateTimeField(auto_now_add=True)
+    telefono = models.IntegerField()
+    email = models.EmailField()
     imagen = models.ImageField(null=True, blank=True, upload_to="imagen_lavarropa")
 
     def __str__(self):

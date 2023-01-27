@@ -2,10 +2,7 @@
 {% block estilos %}
 
 
-.flex_products{
-    justify-content: space-around;
-    display: block;
-}
+
 
 
 .img_producto{
@@ -20,6 +17,7 @@
     padding: 10px;
     font-weight: bold;
     max-width: 500px;
+    justify-content: space-around;
 }
 .producto span{
     font-weight: bold;
@@ -34,28 +32,30 @@
     
 
 
-{% for celular in celulares %}
-<main class="container-fluid">
-    
 
-    <div class="flex_products row" >
-       
-        <article class="producto col-xl-3 col-md-6 col-sm-12 align-items-center" >
-            <img class="img_producto" src="{{celular.imagen.url}}" alt="">
-                <div>
-                    <span>{{celular.modelo}}</span>
-                    <a  class="btn btn-primary" href="{% url 'ver_celular' celular.id %}">Ver más</a>
+<div class="container text-center">
+    <div class="row">
+            {% for celular in celulares %}
+            
+            <div class="producto col-sm-6 align-items-center">
+                <div class="card-body">
+                <img class="img_producto" src="{{celular.imagen.url}}" alt="">
+                <span>{{celular.modelo}}</span>
+                <hr>
+                <a  class="btn btn-primary" href="{% url 'ver_celular' celular.id %}">Ver más</a>
                     {% if user.id == celular.usuario.id %}
                     <a  class="btn btn-success" href="{% url 'editar_celular' celular.id %}">Editar</a>
                     <a  class="btn btn-danger" href="{% url 'eliminar_celular' celular.id %}">Eliminar</a>
-                    {% endif %}
+               
+                <br>
+                <br>
+                <br>
+                {% endif %}
                 </div>
-        </article>
-    </div>
-    
-</main>
-<br>
-{% endfor %}
+            </div>
+            {% endfor %}
+
+
 
 
 

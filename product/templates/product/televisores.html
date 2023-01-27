@@ -1,5 +1,66 @@
 {% extends "usuario/base.html" %}
 
+{% block estilos %}
+
+
+
+
+
+.img_producto{
+    width: 100%;
+
+}
+
+
+.producto{
+    border: 1px solid gray;
+    border-radius: 15px;
+    padding: 10px;
+    font-weight: bold;
+    max-width: 500px;
+    justify-content: space-around;
+}
+.producto span{
+    font-weight: bold;
+}
+    
+
+{% endblock estilos %}
+
 {% block contenido %}
-<h1>Teles</h1>
+
+<h1>Lista de Televisores</h1>
+    
+
+
+
+<div class="container text-center">
+    <div class="row">
+            {% for televisor in televisores %}
+            
+            <div class="producto col-sm-6 align-items-center">
+                <div class="card-body">
+                <img class="img_producto" src="{{televisor.imagen.url}}" alt="">
+                <span>{{televisor.modelo}}</span>
+                <hr>
+                <a  class="btn btn-primary" href="{% url 'ver_televisor' televisor.id %}">Ver más</a>
+                    {% if user.id == televisor.usuario.id %}
+                    <a  class="btn btn-success" href="{% url 'editar_televisor' televisor.id %}">Editar</a>
+                    <a  class="btn btn-danger" href="{% url 'eliminar_televisor' televisor.id %}">Eliminar</a>
+               
+                <br>
+                <br>
+                <br>
+                {% endif %}
+                </div>
+            </div>
+            {% endfor %}
+
+
+
+
+
+
+
+
 {% endblock contenido %}

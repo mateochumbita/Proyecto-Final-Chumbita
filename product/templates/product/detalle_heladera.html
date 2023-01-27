@@ -1,0 +1,19 @@
+{% extends "usuario/base.html" %}
+
+
+{% block contenido %}
+
+
+        
+<h1>Detalles del producto</h1>
+<h3> {{ heladera.titulo }}</h3>
+<img src="{{ heladera.imagen.url }}" alt="">
+<p>Marca: {{ heladera.marca}}</p>
+<p>Modelo: {{ heladera.modelo}}</p>
+<p>Descripción: {{ heladera.descripcion}}</p>
+<p>Año: {{ heladera.year}}</p>
+<p>Precio: {{heladera.precio}}</p>
+<p>Teléfono: {{heladera.telefono}} </p>
+<p>Email: {{heladera.email}} </p>
+
+{% endblock contenido %}
