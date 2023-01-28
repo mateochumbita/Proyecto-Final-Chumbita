@@ -1,19 +1,28 @@
 {% extends "usuario/base.html" %}
-
+{% block subtitulo%} Detalle Celular {% endblock subtitulo %}
 
 {% block contenido %}
 
 
         
 <h1>Detalles del producto</h1>
+<hr>
 <h3> {{ celular.titulo }}</h3>
+<p>{{celular.fecha}}</p>
 <img src="{{ celular.imagen.url }}" alt="">
-<p>Marca: {{ celular.marca}}</p>
-<p>Modelo: {{ celular.modelo}}</p>
-<p>Descripción: {{ celular.descripcion}}</p>
-<p>Año: {{ celular.year}}</p>
-<p>Precio: {{celular.precio}}</p>
-<p>Teléfono: {{celular.telefono}} </p>
-<p>Email: {{celular.email}} </p>
-
+<p><b>Marca:</b> {{ celular.marca}}</p>
+<hr>
+<p><b>Modelo:</b> {{ celular.modelo}}</p>
+<hr>
+<p> <b> Descripción:</b> {{ celular.descripcion}}</p>
+<hr>
+<p><b>Año:</b> {{ celular.year}}</p>
+<hr>
+<p><b>Precio($USD):</b> {{celular.precio}}</p>
+<hr>
+<p><b>Teléfono:</b> {{celular.telefono}} </p>
+<hr>
+<p><b>Email:</b> {{celular.email}} </p>
+<hr>
+<a href="{% url 'celulares'%}" class=" btn btn-primary">Volver a la Lista</a>
 {% endblock contenido %}

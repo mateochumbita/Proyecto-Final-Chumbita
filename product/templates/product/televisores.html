@@ -1,5 +1,16 @@
 {% extends "usuario/base.html" %}
-
+{% block subtitulo%} Televisores {% endblock subtitulo %}
+{% block buscar %}  
+<div class="input-group mb-3" style="box-sizing: border-box;">
+    <form action="{% url 'buscar_televisor' %}" method="post" class="d-flex" role="search" style="display: flex;">
+        {% csrf_token %}
+        <input type="text" name="busqueda" placeholder="Buscar Televisor" class="form-control me-2">
+        <input type="submit" value="Buscar" class="btn btn-outline-success">
+      </form>
+      <br>
+  
+  </div>
+{% endblock buscar%}
 {% block estilos %}
 
 
@@ -29,16 +40,15 @@
 
 {% block contenido %}
 
-<h1>Lista de Televisores</h1>
-    
-
+<h1>TV Led, Smart TV</h1>
+<br>
 
 
 <div class="container text-center">
     <div class="row">
             {% for televisor in televisores %}
             
-            <div class="producto col-sm-6 align-items-center">
+            <div class="producto col-sm-4 align-items-center">
                 <div class="card-body">
                 <img class="img_producto" src="{{televisor.imagen.url}}" alt="">
                 <span>{{televisor.modelo}}</span>

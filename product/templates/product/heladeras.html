@@ -1,4 +1,17 @@
 {% extends "usuario/base.html" %}
+{% block subtitulo%} Heladeras {% endblock subtitulo %}
+{% block buscar %}  
+<div class="input-group mb-3" style="box-sizing: border-box;">
+    <form action="{% url 'buscar_heladera' %}" method="post" class="d-flex" role="search" style="display: flex;">
+        {% csrf_token %}
+        <input type="text" name="busqueda" placeholder="Buscar Heladera" class="form-control me-2">
+        <input type="submit" value="Buscar" class="btn btn-outline-success">
+      </form>
+      <br>
+  
+  </div>
+{% endblock buscar%}
+
 
 
 {% block estilos %}
@@ -30,7 +43,8 @@
 
 {% block contenido %}
 
-<h1>Lista de Celulares</h1>
+<h1>Heladeras</h1>
+<br>
     
 
 
@@ -39,7 +53,7 @@
     <div class="row">
             {% for heladera in heladeras %}
             
-            <div class="producto col-sm-6 align-items-center">
+            <div class="producto col-sm-4 align-items-center">
                 <div class="card-body">
                 <img class="img_producto" src="{{heladera.imagen.url}}" alt="">
                 <span>{{heladera.marca}} {{heladera.modelo}}</span>

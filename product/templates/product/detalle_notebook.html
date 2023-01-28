@@ -1,18 +1,25 @@
 {% extends "usuario/base.html" %}
+{% block subtitulo%} Detalle Notebook {% endblock subtitulo %}
 
 {% block contenido %}
-
-
-        
 <h1>Detalles del producto</h1>
+<hr>
 <h3> {{ notebook.titulo }}</h3>
+<p>{{notebook.fecha}}</p>
 <img src="{{ notebook.imagen.url }}" alt="">
-<p>Marca: {{ notebook.marca}}</p>
-<p>Modelo: {{ notebook.modelo}}</p>
-<p>Descripción: {{ notebook.descripcion}}</p>
-<p>Año: {{ notebook.year}}</p>
-<p>Precio: {{notebook.precio}}</p>
-<p>Teléfono: {{notebook.telefono}} </p>
-<p>Email: {{notebook.email}} </p>
-
+<p><b>Marca:</b> {{ notebook.marca}}</p>
+<hr>
+<p><b>Modelo:</b> {{ notebook.modelo}}</p>
+<hr>
+<p> <b> Descripción:</b> {{ notebook.descripcion}}</p>
+<hr>
+<p><b>Año:</b> {{ notebook.year}}</p>
+<hr>
+<p><b>Precio($USD):</b> {{notebook.precio}}</p>
+<hr>
+<p><b>Teléfono:</b> {{notebook.telefono}} </p>
+<hr>
+<p><b>Email:</b> {{notebook.email}} </p>
+<br>
+<a href="{% url 'notebooks'%}" class=" btn btn-primary">Volver a la Lista</a>
 {% endblock contenido %}

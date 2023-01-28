@@ -1,17 +1,42 @@
 {% extends "usuario/base.html" %}
+{% load static %}
 {% block subtitulo%}Inicio {% endblock subtitulo %}
+{% block banner %}
+<div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="{% static 'assets/img/banner6.jpg'%}" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="{% static 'assets/img/banner5.jpg'%}" class="d-block w-100" alt="...">
+      </div>
+      
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+{% endblock banner %}
 
 
 {% block contenido %}
 
-<h1>Bienvenido a la Tienda, {{ request.user.first_name }} </h1>
 
 
-<a class="btn btn-primary" href="{% url 'publicar_celular'%}" >Vender celu</a>
-<a class="btn btn-primary" href="{% url 'publicar_notebook'%}" >Vender Notebook</a>
-<a class="btn btn-primary" href="{% url 'publicar_televisor'%}" >Vender TV</a>
-<a class="btn btn-primary" href="{% url 'publicar_heladera'%}" >Vender Heladera</a>
-<a class="btn btn-primary" href="{% url 'publicar_lavarropa'%}" >Vender Lavarropas</a>
+
+<div style="justify-content: space-between;">
+    <a class="btn btn-primary" href="{% url 'publicar_celular'%}" >Publicar Celular</a>
+    <a class="btn btn-primary" href="{% url 'publicar_notebook'%}" >Publicar Notebook</a>
+    <a class="btn btn-primary" href="{% url 'publicar_televisor'%}" >Publicar TV</a>
+    <a class="btn btn-primary" href="{% url 'publicar_heladera'%}" >Publicar Heladera</a>
+
+</div>
 
 
 {% endblock contenido %}

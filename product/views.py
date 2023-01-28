@@ -15,7 +15,15 @@ from product.models import *
 
 from product.forms import *
 
-@login_required
+
+def aboutme(request):
+    return render(
+        request=request,
+        template_name='product/acerca_de_mi.html',
+    )
+    
+
+
 def celular(request):
     contexto = {
         'celulares': Celular.objects.all()
@@ -23,7 +31,7 @@ def celular(request):
     return render(request=request, template_name='product/celulares.html',
      context=contexto )
 
-@login_required
+
 def notebook(request):
     contexto = {
         'notebooks': Notebook.objects.all()
@@ -32,7 +40,7 @@ def notebook(request):
      context=contexto )
 
 
-@login_required
+
 def televisor(request):
     contexto = {
         'televisores': Televisor.objects.all()
@@ -41,7 +49,7 @@ def televisor(request):
      context=contexto )
 
 
-@login_required
+
 def heladera(request):
     contexto = {
         'heladeras': Heladera.objects.all()
@@ -50,7 +58,7 @@ def heladera(request):
      context=contexto )
 
 
-@login_required
+
 def lavarropa(request):
     contexto = {
         'lavarropas': Lavarropa.objects.all()
@@ -202,3 +210,72 @@ class LavarropaDeleteView(LoginRequiredMixin, DeleteView):
     model = Lavarropa
     success_url = reverse_lazy('lavarropas')
     template_name = "product/confirmar_eliminacion_lavarropa.html"
+    
+    
+    
+#BUSCAR
+
+
+def buscar_celular(request):
+    if request.method == "POST":
+        data = request.POST
+        celulares = Celular.objects.filter(
+            Q(marca__contains=data['busqueda']) |Q(modelo__contains=data['busqueda']) )
+        
+        contexto = {
+            'celulares': celulares
+        }
+        return render(
+            request=request,
+            template_name='product/celulares.html',
+            context=contexto,
+        )
+        
+
+def buscar_notebook(request):
+    if request.method == "POST":
+        data = request.POST
+        notebooks = Notebook.objects.filter(
+            Q(marca__contains=data['busqueda']) |Q(modelo__contains=data['busqueda']) )
+        
+        contexto = {
+            'notebooks': notebooks
+        }
+        return render(
+            request=request,
+            template_name='product/notebooks.html',
+            context=contexto,
+        )
+        
+        
+def buscar_televisor(request):
+    if request.method == "POST":
+        data = request.POST
+        televisores = Televisor.objects.filter(
+            Q(marca__contains=data['busqueda']) |Q(modelo__contains=data['busqueda']) )
+        
+        contexto = {
+            'televisores': televisores
+        }
+        return render(
+            request=request,
+            template_name='product/televisores.html',
+            context=contexto,
+        )
+        
+        
+        
+def buscar_heladera(request):
+    if request.method == "POST":
+        data = request.POST
+        heladeras = Heladera.objects.filter(
+            Q(marca__contains=data['busqueda']) |Q(modelo__contains=data['busqueda']) )
+        
+        contexto = {
+            'heladeras': heladeras
+        }
+        return render(
+            request=request,
+            template_name='product/heladeras.html',
+            context=contexto,
+        )

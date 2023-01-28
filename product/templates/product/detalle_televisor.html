@@ -1,18 +1,26 @@
 {% extends "usuario/base.html" %}
+{% block subtitulo%} Detalle TV {% endblock subtitulo %}
 
 {% block contenido %}
 
-
-        
 <h1>Detalles del producto</h1>
+<hr>
 <h3> {{ televisor.titulo }}</h3>
+<p>{{televisor.fecha}}</p>
 <img src="{{ televisor.imagen.url }}" alt="">
-<p>Marca: {{ televisor.marca}}</p>
-<p>Modelo: {{ televisor.modelo}}</p>
-<p>Descripción: {{ televisor.descripcion}}</p>
-<p>Año: {{ televisor.year}}</p>
-<p>Precio: {{televisor.precio}}</p>
-<p>Teléfono: {{televisor.telefono}} </p>
-<p>Email: {{televisor.email}} </p>
-
+<p><b>Marca:</b> {{ televisor.marca}}</p>
+<hr>
+<p><b>Modelo:</b> {{ televisor.modelo}}</p>
+<hr>
+<p> <b> Descripción:</b> {{televisor.descripcion}}</p>
+<hr>
+<p><b>Año:</b> {{ televisor.year}}</p>
+<hr>
+<p><b>Precio($USD):</b> {{televisor.precio}}</p>
+<hr>
+<p><b>Teléfono:</b> {{televisor.telefono}} </p>
+<hr>
+<p><b>Email:</b> {{televisor.email}} </p>
+<br>
+<a href="{% url 'televisores'%}" class=" btn btn-primary">Volver a la Lista</a>
 {% endblock contenido %}

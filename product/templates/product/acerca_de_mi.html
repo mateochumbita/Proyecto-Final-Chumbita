@@ -1,0 +1,13 @@
+{% extends "usuario/base.html" %}
+{% load static %}
+{% block subtitulo%}Acerca de mí {% endblock subtitulo %}
+{% block contenido %}
+<h1>Acerca de mí</h1>
+ <p>Hola, soy Mateo Chumbita, tengo 17 años y estoy empezando a incursionarme en el mundo de la programación, comencé con cursos de HTML y CSS y ahora estoy adentrandome en Python y poteriormente quiero hacerlo en JavaScript.</p>       
+<p>El año pasado finalicé el secundario y este año comenzaré mis estudios universitarios en la carrera "Desarrollo de Aplicaciones Informáticas"</p>      
+
+<img src="{% static 'assets/img/mateo.jpg' %}"   width="300px" alt="">
+
+
+
+{% endblock contenido %}

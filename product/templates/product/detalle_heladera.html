@@ -1,19 +1,27 @@
 {% extends "usuario/base.html" %}
-
+{% block subtitulo%} Detalle Heladera {% endblock subtitulo %}
 
 {% block contenido %}
 
-
-        
 <h1>Detalles del producto</h1>
+<hr>
 <h3> {{ heladera.titulo }}</h3>
+<p>{{heladera.fecha}}</p>
 <img src="{{ heladera.imagen.url }}" alt="">
-<p>Marca: {{ heladera.marca}}</p>
-<p>Modelo: {{ heladera.modelo}}</p>
-<p>Descripción: {{ heladera.descripcion}}</p>
-<p>Año: {{ heladera.year}}</p>
-<p>Precio: {{heladera.precio}}</p>
-<p>Teléfono: {{heladera.telefono}} </p>
-<p>Email: {{heladera.email}} </p>
+<p><b>Marca:</b> {{ heladera.marca}}</p>
+<hr>
+<p><b>Modelo:</b> {{ heladera.modelo}}</p>
+<hr>
+<p> <b> Descripción:</b> {{ heladera.descripcion}}</p>
+<hr>
+<p><b>Año:</b> {{ heladera.year}}</p>
+<hr>
+<p><b>Precio($USD):</b> {{heladera.precio}}</p>
+<hr>
+<p><b>Teléfono:</b> {{celular.telefono}} </p>
+<hr>
+<p><b>Email:</b> {{heladera.email}} </p>
+<br>
 
+<a href="{% url 'heladeras'%}" class=" btn btn-primary">Volver a la Lista</a>
 {% endblock contenido %}
