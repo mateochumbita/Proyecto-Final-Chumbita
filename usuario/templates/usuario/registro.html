@@ -124,7 +124,7 @@ login {
       {% csrf_token %}
       {{ form.as_p }}
       <div >
-        <button type="submit"   value="Registrarse" class="buttonShadow">Registrarse</button>
+        <button type="submit"   value="Registrarse" class="buttonShadow" onclick="mostrar()">Registrarse</button>
 
       </div>
       
@@ -135,13 +135,13 @@ login {
 
 
 {% block js %}
-const loaders = document.querySelectorAll(".loader");
-loaders.forEach((loader, index) => {
-    loader.addEventListener("click", handleOnClickLoad);
-});
 
-function handleOnClickLoad(e) {
-    e.target.innerHTML = "<i class='bx bx-loader-alt bx-spin'></i>";
+function mostrar(){
+  swal({
+    title: "Registro Exitoso!",
+    text: "Usuario registrado correctamente!",
+    icon: "success",
+  });
 }
 
 {% endblock js %}

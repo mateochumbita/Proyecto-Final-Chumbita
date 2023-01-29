@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 from usuario.views import *
 
 class Celular(models.Model):
-    usuario = models.ForeignKey(to=User, on_delete=models.CASCADE, null=True, blank=True)
+    usuario = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
     titulo = models.CharField(max_length=200)
     marca = models.CharField(max_length=40)
     modelo = models.CharField(max_length=40)
@@ -26,7 +26,7 @@ class Celular(models.Model):
 
 
 class Notebook(models.Model):
-    usuario = models.ForeignKey(to=User, on_delete=models.CASCADE, null=True, blank=True)
+    usuario = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
     titulo = models.CharField(max_length=200)
     marca = models.CharField(max_length=40)
     modelo = models.CharField(max_length=40)
@@ -43,7 +43,7 @@ class Notebook(models.Model):
 
 
 class Televisor(models.Model):
-    usuario = models.ForeignKey(to=User, on_delete=models.CASCADE, null=True, blank=True)
+    usuario = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
     titulo = models.CharField(max_length=200)
     marca = models.CharField(max_length=40)
     modelo = models.CharField(max_length=40)
@@ -60,7 +60,7 @@ class Televisor(models.Model):
 
 
 class Heladera(models.Model):
-    usuario = models.ForeignKey(to=User, on_delete=models.CASCADE, null=True, blank=True)
+    usuario = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
     titulo = models.CharField(max_length=200)
     marca = models.CharField(max_length=40)
     modelo = models.CharField(max_length=40)
@@ -77,7 +77,7 @@ class Heladera(models.Model):
 
 
 class Lavarropa(models.Model):
-    usuario = models.ForeignKey(to=User, on_delete=models.CASCADE, null=True, blank=True)
+    usuario = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
     titulo = models.CharField(max_length=200)
     marca = models.CharField(max_length=40)
     modelo = models.CharField(max_length=40)

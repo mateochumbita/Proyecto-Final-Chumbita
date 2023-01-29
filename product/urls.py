@@ -5,6 +5,7 @@ from product.views import *
 from product.forms import *
 
 urlpatterns = [
+path('admin/', admin.site.urls),
 #PRODUCTOS
 path('celulares/', celular, name='celulares'),
 path('notebooks/', notebook, name='notebooks'),

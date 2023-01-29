@@ -128,7 +128,7 @@ login {
       {% csrf_token %}
       {{ form.as_p }}
       <div style="text-align: center;">
-        <button type="submit" value="Enviar" class="buttonShadow" >Enviar</button>
+        <button type="submit" value="Enviar" class="buttonShadow" onclick="mostrar()" >Enviar</button>
       </div>
       
     </form>
@@ -142,3 +142,19 @@ login {
 
 
 {% endblock contenido %}
+
+
+
+
+
+{% block js %}
+
+function mostrar(){
+  swal({
+    title: "Publicación exitosa",
+    text: "El producto se ha cargado correctamente!",
+    icon: "success",
+  });
+}
+
+{% endblock js %}

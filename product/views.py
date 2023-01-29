@@ -74,30 +74,47 @@ def lavarropa(request):
 
 class CelularCreateView(LoginRequiredMixin, CreateView):
     model = Celular
-    fields = ['usuario', 'titulo', 'marca', 'modelo', 'descripcion', 'year', 'precio', 'telefono', 'email', 'imagen']
+    form_class= NuevoCelularForm
     success_url = reverse_lazy('celulares')
     template_name = "product/formulario_celular.html"
-
+    
+    def form_valid(self, form):
+        form.instance.usuario = self.request.user
+        return super(CelularCreateView, self).form_valid(form)
 
 
 class NotebookCreateView(LoginRequiredMixin, CreateView):
     model = Notebook
-    fields = ['usuario', 'titulo', 'marca', 'modelo', 'descripcion', 'year', 'precio', 'telefono', 'email', 'imagen']
+    form_class = NuevaNotebookForm
     success_url = reverse_lazy('notebooks')
     template_name = "product/formulario_notebook.html"
+    
+    def form_valid(self, form):
+        form.instance.usuario = self.request.user
+        return super(NotebookCreateView, self).form_valid(form)
 
 
 class TelevisorCreateView(LoginRequiredMixin, CreateView):
     model = Televisor
-    fields = ['usuario', 'titulo', 'marca', 'modelo', 'descripcion', 'year', 'precio', 'telefono', 'email', 'imagen']
+    form_class= NuevoTelevisorForm
     success_url = reverse_lazy('televisores')
     template_name = "product/formulario_televisor.html"
 
+    def form_valid(self, form):
+        form.instance.usuario = self.request.user
+        return super(TelevisorCreateView, self).form_valid(form)
+
+
+
 class HeladeraCreateView(LoginRequiredMixin, CreateView):
     model = Heladera
-    fields = ['usuario', 'titulo', 'marca', 'modelo', 'descripcion', 'year', 'precio', 'telefono', 'email', 'imagen']
+    form_class = NuevaHeladeraForm
     success_url = reverse_lazy('heladeras')
     template_name = "product/formulario_heladera.html"
+    
+    def form_valid(self, form):
+        form.instance.usuario = self.request.user
+        return super(HeladeraCreateView, self).form_valid(form)
 
 
 
@@ -147,34 +164,34 @@ class LavarropaDetailView(LoginRequiredMixin, DetailView):
 #EDITAR
 class CelularUpdateView(LoginRequiredMixin, UpdateView):
     model = Celular
-    fields = ['usuario', 'titulo', 'marca', 'modelo', 'descripcion', 'year', 'precio', 'telefono', 'email', 'imagen']
+    form_class= EdicionCelularForm
     success_url = reverse_lazy('celulares')
     template_name = "product/editar_celular.html"
 
 
 class NotebookUpdateView(LoginRequiredMixin, UpdateView):
     model = Notebook
-    fields = ['usuario', 'titulo', 'marca', 'modelo', 'descripcion', 'year', 'precio', 'telefono', 'email', 'imagen']
+    form_class =  EdicionNotebookForm
     success_url = reverse_lazy('notebooks')
     template_name = "product/editar_notebook.html"
 
 class TelevisorUpdateView(LoginRequiredMixin, UpdateView):
     model = Televisor
-    fields = ['usuario', 'titulo', 'marca', 'modelo', 'descripcion', 'year', 'precio', 'telefono', 'email', 'imagen']
+    form_class = EdicionTelevisorForm
     success_url = reverse_lazy('televisores')
     template_name = "product/editar_televisor.html"
 
 
 class HeladeraUpdateView(LoginRequiredMixin, UpdateView):
     model = Heladera
-    fields = ['usuario', 'titulo', 'marca', 'modelo', 'descripcion', 'year', 'precio', 'telefono', 'email', 'imagen']
+    form_class = EdicionHeladeraForm
     success_url = reverse_lazy('heladeras')
     template_name = "product/editar_heladera.html"
 
 
 class LavarropaUpdateView(LoginRequiredMixin, UpdateView):
     model = Lavarropa
-    fields = ['usuario', 'titulo', 'marca', 'modelo', 'descripcion', 'year', 'precio', 'telefono', 'email', 'imagen']
+    fields = [ 'titulo', 'marca', 'modelo', 'descripcion', 'year', 'precio', 'telefono', 'email', 'imagen']
     success_url = reverse_lazy('lavarropas')
     template_name = "product/editar_lavarropa.html"
 
