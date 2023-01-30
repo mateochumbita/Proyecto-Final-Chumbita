@@ -204,7 +204,7 @@ class LavarropaUpdateView(LoginRequiredMixin, UpdateView):
 class CelularDeleteView(LoginRequiredMixin, DeleteView):
     model = Celular
     success_url = reverse_lazy('celulares')
-    template_name = "product/confirmar_eliminacion_notebook.html"
+    template_name = "product/confirmar_eliminacion_celular.html"
     
     
 class NotebookDeleteView(LoginRequiredMixin, DeleteView):

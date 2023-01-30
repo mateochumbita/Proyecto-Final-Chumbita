@@ -2,11 +2,18 @@
 {% block subtitulo%} Eliminar Notebook {% endblock subtitulo %}
 
 {% block contenido %}
-<span>Vas a eliminar a {{object}}</span>
 
-<form method="post">
-  {% csrf_token %}
-  {{ form.as_p }}
-  <input type="submit" value="Confirmar" />
-</form>
+<div class="container text-center">
+
+  <form method="post">{% csrf_token %}
+      <h4>Estás seguro(a) que deseas borrar la Notebook{{notebook.marca}} {{notebook.modelo}} ?</h4>
+      <p>
+          <button type="submit" class="btn btn-danger">Eliminar</button>
+          <a href="{% url 'notebooks'%}" class="btn btn-primary">Cancelar</a>
+      </p>
+  </form>
+  
+  </div>
+
+
 {% endblock contenido %}

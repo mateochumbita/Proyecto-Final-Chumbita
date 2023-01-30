@@ -1,11 +1,25 @@
 {% extends "usuario/base.html" %}
 {% block subtitulo%} Eliminar Celular {% endblock subtitulo %}
 {% block contenido %}
-<span>Vas a eliminar a {{object}}</span>
 
-<form method="post">
-  {% csrf_token %}
-  {{ form.as_p }}
-  <input type="submit" value="Confirmar" />
-</form>
+<div class="container text-center">
+
+  <form method="post">{% csrf_token %}
+      <h4>Estás seguro(a) que deseas borrar el celular {{celular.marca}} {{celular.modelo}} ?</h4>
+      <p>
+          <button type="submit" class="btn btn-danger">Eliminar</button>
+          <a href="{% url 'celulares'%}" class="btn btn-primary">Cancelar</a>
+      </p>
+  </form>
+  
+  </div>
+
+
+
+  
+
+
+
+
+
 {% endblock contenido %}
