@@ -9,6 +9,7 @@ path('inicio/', inicio, name='inicio'),
 path('registro/', registro, name='registro'),  
 path('login/', login_view, name='login'),
 path('logout/', CustomLogoutView.as_view(), name="logout"),
+path('ayuda/', ayuda, name="ayuda"),
 #AVATAR
 path('agregar-avatar/', agregar_avatar, name="agregar_avatar"),
 path('editar-perfil/', ProfileUpdateView.as_view(), name="editar_perfil"),

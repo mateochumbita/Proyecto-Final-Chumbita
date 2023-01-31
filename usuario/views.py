@@ -25,6 +25,13 @@ def inicio(request):
     )
 
 
+def ayuda(request):
+    return render(
+        request=request,
+        template_name='usuario/ayuda.html',
+    )
+
+
 def registro(request):
     if request.method == "POST":
         formulario = UserRegisterForm(request.POST)
