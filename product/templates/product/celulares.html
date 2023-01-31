@@ -45,36 +45,34 @@
 
 <h1>Smartphones y Celulares</h1>
 <br>
+{% if  celulares|length == 0  %}
+<h4><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAAgBJREFUSEvNloEtREEQhv+rABWgAnRABagAFaACVIAKUMFRASpABZRABeRLdi7z9nZvZy+Su0lecrk3b7+Zf3ZndqQF2WhBXM0D3pW0Imk7Bf0u6VvSa08SUTCQU0kHklYrAOCPkq4kfbWCaIGBXEs6bi2Uvb+XdJ6UKH46C0yWY0kb7ssHSS+SkJcHw48HNfadL+9PnN8ggBqYhZ6drE+SzgISEuSNCwD590rwEhh531ymSMZiPUaQlAgjc+AEMbESmPocJY8alOC2ks9HpZYeTokG+yQHIzHZYshL3UrGkaIUGNlQ95Kxy63um75UOdhnO3DMVo2Cqfln+naQdQ6mDjSHKWkyMFLnDaS2Byxr1l4zJw/2WXAMyP4/jNre5WXxYOrJucV2aucvvY9sLgva75vD1N0GvfpS0kXybnW0aI0N/pt+0E7hLAe4R+qejJtS92yuHnBzcyG9HadZzQO/HrAdpx8/Upemgfh6ECnbv2TRjMMtE0h0SLQ6V9eQAExzYJStp1RZ4LazhXko0wuFmmMRBtkwcejbGJIxIlt3KYYCc9imGhsKqN1WJvG3rj4ALXMLgP/Iwl99mM3A/BjFh6M0Bc07V0lNZOf2YReDqOJMN+QeyOs/bvVk80VCeiwZmfx5EMiKGvi1SjL3hb40j2u3kKJK0YyjEof9Fgb+A1zYiB+sqF/sAAAAAElFTkSuQmCC"/>No hay nada aquí aún</h4>
+{% else %}
+    <div class="container text-center">
+        <div class="row">
+                {% for celular in celulares %}
+                <div class="producto col-sm-4 align-items-center">
+                    <div class="card-body">
+                    <img class="img_producto" src="{{celular.imagen.url}}" alt="">
+                    <span>{{celular.modelo}}</span>
+                    <br>
+                    <hr>
 
-
-<div class="container text-center">
-    <div class="row">
-            {% for celular in celulares %}
-            {% if celulares == None %}
-            <p>No hay nada aquí</p>
-            {% endif %}
-            <div class="producto col-sm-4 align-items-center">
-                <div class="card-body">
-                <img class="img_producto" src="{{celular.imagen.url}}" alt="">
-                <span>{{celular.modelo}}</span>
-                <br>
-                <hr>
-
-                <a  class="btn btn-primary" href="{% url 'ver_celular' celular.id %}">Ver más</a>
-                    {% if user.id == celular.usuario.id %}
-                    <a  class="btn btn-success" href="{% url 'editar_celular' celular.id %}">Editar</a>
-                    <a  class="btn btn-danger" href="{% url 'eliminar_celular' celular.id %}">Eliminar</a>
-               
-                <br>
-                <br>
-                <br>
-                    {% endif %}
+                    <a  class="btn btn-primary" href="{% url 'ver_celular' celular.id %}">Ver más</a>
+                        {% if user.id == celular.usuario.id %}
+                        <a  class="btn btn-success" href="{% url 'editar_celular' celular.id %}">Editar</a>
+                        <a  class="btn btn-danger" href="{% url 'eliminar_celular' celular.id %}">Eliminar</a>
+                
+                    <br>
+                    <br>
+                    <br>
+                        {% endif %}
+                    </div>
                 </div>
-            </div>
-            {% endfor %}
+                {% endfor %}
 
 
-
+{% endif %}
 
 
 {% endblock contenido %}
