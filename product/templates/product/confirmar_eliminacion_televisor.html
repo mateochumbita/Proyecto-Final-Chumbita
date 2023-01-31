@@ -9,10 +9,22 @@
   <form method="post">{% csrf_token %}
       <h4>Estás seguro(a) que deseas borrar el Televisor {{televisor.marca}} {{televisor.modelo}} ?</h4>
       <p>
-          <button type="submit" class="btn btn-danger">Eliminar</button>
+          <button type="submit" class="btn btn-danger" onclick="mostrar()">Eliminar</button>
           <a href="{% url 'televisores'%}" class="btn btn-primary">Cancelar</a>
       </p>
   </form>
   
   </div>
 {% endblock contenido %}
+{% block js %}
+
+function mostrar(){
+  swal({
+    title: "Eliminación Exitosa",
+    text: "El producto se ha eliminado correctamente!",
+    icon: "success",
+    confirmButtonText: "Aceptar"
+  });
+}
+
+{% endblock js %}

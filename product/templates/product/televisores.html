@@ -48,26 +48,26 @@
 <div class="container text-center">
     <div class="row">
             {% for televisor in televisores %}
-            {% if  televisores == None %}
-                <p>No hay nada aquí</p>
-            {% else %}
-            {% endif %}
-            <div class="producto col-sm-4 align-items-center">
-                <div class="card-body">
-                <img class="img_producto" src="{{televisor.imagen.url}}" alt="">
-                <span>{{televisor.modelo}}</span>
-                <hr>
-                <a  class="btn btn-primary" href="{% url 'ver_televisor' televisor.id %}">Ver más</a>
-                    {% if user.id == televisor.usuario.id %}
-                    <a  class="btn btn-success" href="{% url 'editar_televisor' televisor.id %}">Editar</a>
-                    <a  class="btn btn-danger" href="{% url 'eliminar_televisor' televisor.id %}">Eliminar</a>
-               
-                <br>
-                <br>
-                <br>
+                {% if  televisores == None %}
+                    <p>No hay nada aquí</p>
                 {% endif %}
+                
+                <div class="producto col-sm-4 align-items-center">
+                    <div class="card-body">
+                    <img class="img_producto" src="{{televisor.imagen.url}}" alt="">
+                    <span>{{televisor.modelo}}</span>
+                    <hr>
+                    <a  class="btn btn-primary" href="{% url 'ver_televisor' televisor.id %}">Ver más</a>
+                        {% if user.id == televisor.usuario.id %}
+                        <a  class="btn btn-success" href="{% url 'editar_televisor' televisor.id %}">Editar</a>
+                        <a  class="btn btn-danger" href="{% url 'eliminar_televisor' televisor.id %}">Eliminar</a>
+                
+                    <br>
+                    <br>
+                    <br>
+                    {% endif %}
+                    </div>
                 </div>
-            </div>
             {% endfor %}
 
 
