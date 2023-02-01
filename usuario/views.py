@@ -17,7 +17,6 @@ from usuario.forms import *
 
 
 
-@login_required
 def inicio(request):
     return render(
         request=request,
@@ -110,3 +109,11 @@ def agregar_avatar(request):
         template_name='usuario/formulario_avatar.html',
         context={'form': formulario},
     )
+
+
+
+
+#COMENTARIOS
+
+
+

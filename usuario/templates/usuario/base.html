@@ -50,8 +50,9 @@
             <div>{% block buscar %} {% endblock buscar%}</div>
             <a class="navbar-brand" href="#"></a>
             <a class="navbar-brand" href="{% url 'acerca_de_mi'%}">Acerca de mí</a>
-            <a class="navbar-brand" href="#"></a>
+           
             {% if user.is_authenticated %}
+            <b class="text-light">Bienvenido {{user.first_name}} </b>
                 <div class="dropdown">
                     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                         <div style="display: inline-flex;">

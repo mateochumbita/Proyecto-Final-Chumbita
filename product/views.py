@@ -59,12 +59,7 @@ def heladera(request):
 
 
 
-def lavarropa(request):
-    contexto = {
-        'lavarropas': Lavarropa.objects.all()
-    }
-    return render(request=request, template_name='product/lavarropas.html',
-     context=contexto )
+
 
 
 
@@ -119,11 +114,6 @@ class HeladeraCreateView(LoginRequiredMixin, CreateView):
 
 
 
-class LavarropaCreateView(LoginRequiredMixin, CreateView):
-    model = Lavarropa
-    fields = ['usuario', 'titulo', 'marca', 'modelo', 'descripcion', 'year', 'precio', 'telefono', 'email', 'imagen']
-    success_url = reverse_lazy('lavarropas')
-    template_name = "product/formulario_lavarropa.html"
 
 
 
@@ -154,10 +144,7 @@ class HeladeraDetailView(LoginRequiredMixin, DetailView):
     template_name = "product/detalle_heladera.html"
     
     
-class LavarropaDetailView(LoginRequiredMixin, DetailView):
-    model = Lavarropa
-    success_url = reverse_lazy('lavarropas')
-    template_name = "product/detalle_lavarropa.html"
+
     
 
 
@@ -189,11 +176,7 @@ class HeladeraUpdateView(LoginRequiredMixin, UpdateView):
     template_name = "product/editar_heladera.html"
 
 
-class LavarropaUpdateView(LoginRequiredMixin, UpdateView):
-    model = Lavarropa
-    fields = [ 'titulo', 'marca', 'modelo', 'descripcion', 'year', 'precio', 'telefono', 'email', 'imagen']
-    success_url = reverse_lazy('lavarropas')
-    template_name = "product/editar_lavarropa.html"
+
 
 
 
@@ -223,11 +206,7 @@ class HeladeraDeleteView(LoginRequiredMixin, DeleteView):
     success_url = reverse_lazy('heladeras')
     template_name = "product/confirmar_eliminacion_heladera.html"
 
-class LavarropaDeleteView(LoginRequiredMixin, DeleteView):
-    model = Lavarropa
-    success_url = reverse_lazy('lavarropas')
-    template_name = "product/confirmar_eliminacion_lavarropa.html"
-    
+
     
     
 #BUSCAR
@@ -296,3 +275,11 @@ def buscar_heladera(request):
             template_name='product/heladeras.html',
             context=contexto,
         )
+
+
+
+#COMENTARIOS
+
+
+
+
