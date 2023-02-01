@@ -52,7 +52,7 @@
                     <div class="producto col-sm-4 align-items-center">
                         <div class="card-body">
                         <img class="img_producto" src="{{televisor.imagen.url}}" alt="">
-                        <span>{{televisor.modelo}}</span>
+                        <span>{{televisor.marca}} {{televisor.modelo}}</span>
                         <hr>
                         <a  class="btn btn-primary" href="{% url 'ver_televisor' televisor.id %}">Ver más</a>
                             {% if user.id == televisor.usuario.id %}

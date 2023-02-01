@@ -126,7 +126,7 @@ login {
       {% csrf_token %}
       {{ form.as_p }}
       <div style="text-align: center;">
-        <button type="submit" value="Enviar" class="buttonShadow" >Enviar</button>
+        <button type="submit" value="Enviar" class="buttonShadow" onclick="celular()" >Enviar</button>
       </div>
       
     </form>
@@ -135,7 +135,7 @@ login {
 </div>
 
 <br>
-<a href="{% url 'celulares' %}" class=" btn btn-primary">Volver lista</a>
+<a href="{% url 'celulares' %}" class=" btn btn-primary" >Volver lista</a>
 
 {% else %}
 <div class="container">
@@ -144,3 +144,18 @@ login {
 {% endif %}
 
 {% endblock contenido %}
+
+
+
+{% block js %}
+
+function celular(){
+  swal({
+    title: "Actualización exitosa!",
+    text: "El producto se ha actualizado correctamente!",
+    icon: "success",
+    confirmButtonText: "Aceptar"
+  });
+}
+
+{% endblock js %}
