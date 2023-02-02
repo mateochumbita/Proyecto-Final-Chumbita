@@ -11,7 +11,8 @@ from django.contrib.auth import login, authenticate
 from django.views.generic import ListView, CreateView, DetailView, UpdateView, DeleteView
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
-
+from django.contrib import messages
+from django.contrib.messages.views import SuccessMessageMixin
 from usuario.forms import *
 
 
@@ -38,6 +39,7 @@ def registro(request):
         if formulario.is_valid():
             formulario.save()  # Esto lo puedo usar porque es un model form
             url_exitosa = reverse('inicio')
+            messages.success(request, "Usuario creado correctamente")
             return redirect(url_exitosa)
     else:  # GET
         formulario = UserRegisterForm()
@@ -63,6 +65,7 @@ def login_view(request):
                 if next_url:
                     return redirect(next_url)
                 url_exitosa = reverse('inicio')
+                messages.success(request, "Se ha iniciado Sesión")
                 return redirect(url_exitosa)
     else:  # GET
         form = AuthenticationForm()
@@ -79,15 +82,16 @@ class CustomLogoutView(LogoutView):
 
 
 #EDITAR USUARIO
-class ProfileUpdateView(LoginRequiredMixin, UpdateView):
-    model = User
-    form_class = UserUpdateForm
-    success_url = reverse_lazy('inicio')
-    template_name = 'usuario/editar_perfil.html'
-    def get_object(self, queryset=None):
-        return self.request.user
-
-
+class ProfileUpdateView(LoginRequiredMixin, UpdateView, SuccessMessageMixin):
+        model = User
+        form_class = UserUpdateForm
+        success_message = "%(calculated_field)s  was created successfully"
+        success_url = reverse_lazy('inicio')
+        template_name = 'usuario/editar_perfil.html'
+        def get_object(self, queryset=None):
+            return self.request.user
+        
+        
 
 
 #AVATAR
@@ -100,6 +104,7 @@ def agregar_avatar(request):
             avatar = formulario.save()
             avatar.user = request.user
             avatar.save()
+            messages.success(request, "Avatar agregado correctamente")
             url_exitosa = reverse('inicio')
             return redirect(url_exitosa)
     else:  # GET
@@ -112,8 +117,6 @@ def agregar_avatar(request):
 
 
 
-
-#COMENTARIOS
 
 
 

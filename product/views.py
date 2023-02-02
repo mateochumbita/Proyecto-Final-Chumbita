@@ -10,9 +10,9 @@ from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import redirect, render
 from django.urls import reverse_lazy
-
+from django.contrib import messages
 from product.models import *
-
+from django.contrib.messages.views import SuccessMessageMixin
 from product.forms import *
 
 
@@ -89,18 +89,15 @@ class NotebookCreateView(LoginRequiredMixin, CreateView):
         return super(NotebookCreateView, self).form_valid(form)
 
 
-class TelevisorCreateView(LoginRequiredMixin, CreateView):
-    model = Televisor
-    form_class= NuevoTelevisorForm
-    success_url = reverse_lazy('televisores')
-    template_name = "product/formulario_televisor.html"
-
-    def form_valid(self, form):
-        form.instance.usuario = self.request.user
-        return super(TelevisorCreateView, self).form_valid(form)
-
-
-
+class TelevisorCreateView(LoginRequiredMixin, CreateView, SuccessMessageMixin):
+        model = Televisor
+        form_class= NuevoTelevisorForm
+        success_url = reverse_lazy('televisores')
+        template_name = "product/formulario_televisor.html"
+        def form_valid(self, form):
+            form.instance.usuario = self.request.user
+            return super(TelevisorCreateView, self).form_valid(form)
+        
 class HeladeraCreateView(LoginRequiredMixin, CreateView):
     model = Heladera
     form_class = NuevaHeladeraForm
@@ -140,6 +137,7 @@ class TelevisorDetailView(LoginRequiredMixin, DetailView):
 
 class HeladeraDetailView(LoginRequiredMixin, DetailView):
     model = Heladera
+    
     success_url = reverse_lazy('heladeras')
     template_name = "product/detalle_heladera.html"
     

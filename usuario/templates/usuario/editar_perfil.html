@@ -118,7 +118,7 @@ login {
   <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit" value="Guardad" class="buttonShadow" onclick="editar()" >Guardar</button>
+    <button type="submit" value="Guardad" class="buttonShadow" >Guardar</button>
 </form>
     
       </div>
@@ -133,13 +133,6 @@ login {
 
 {% block js %}
 
-function editar(){
-  swal({
-    title: "Edicion de perfil exitosa!",
-    text: "Usuario editado correctamente!",
-    icon: "success",
-    confirmButtonText: "Aceptar"
-  });
-}
+
 
 {% endblock js %}

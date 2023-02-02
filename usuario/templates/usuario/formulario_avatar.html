@@ -124,7 +124,7 @@ login {
 <form method="post" enctype="multipart/form-data">
   {% csrf_token %}
   {{ form.as_p }}
-  <input type="submit" value="Subir imagen" onclick="mostrar()"/>
+  <input type="submit" value="Subir imagen" />
     
 </form>
     
@@ -137,13 +137,5 @@ login {
 
 {% block js %}
 
-function mostrar(){
-  swal({
-    title: "Avatar cargado correctamente!",
-    text: "El avatar ha sido cargado correctamente!",
-    icon: "success",
-    confirmButtonText: "Aceptar"
-  });
-}
 
 {% endblock js %}

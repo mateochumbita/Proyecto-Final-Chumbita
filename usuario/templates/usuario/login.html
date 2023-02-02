@@ -127,7 +127,8 @@ login {
       {% csrf_token %}
       {{ form.as_p }}
       <div style="text-align: center;">
-        <button type="submit" value="Iniciar Sesión" class="buttonShadow" onclick="mostrar()" >Iniciar Sesión</button>
+        <button type="submit" value="Iniciar Sesión" class="buttonShadow" 
+         >Iniciar Sesión</button>
         <hr>
       <p>Aun no tienes cuenta? <a href="{% url 'registro' %}" class="buttonShadow">Regístrate</a></p>
       </div>
@@ -142,13 +143,6 @@ login {
 
 {% block js %}
 
-function mostrar(){
-  swal({
-    title: "Login Exitoso!",
-    text: "Usted ha iniciado Sesión!",
-    icon: "success",
-    confirmButtonText: "Aceptar"
-  });
-}
+
 
 {% endblock js %}

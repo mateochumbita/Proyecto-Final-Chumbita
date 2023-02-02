@@ -124,7 +124,7 @@ login {
       {% csrf_token %}
       {{ form.as_p }}
       <div >
-        <button type="submit"   value="Registrarse" class="buttonShadow" onclick="mostrar()">Registrarse</button>
+        <button type="submit"   value="Registrarse" class="buttonShadow" >Registrarse</button>
 
       </div>
       
@@ -136,12 +136,5 @@ login {
 
 {% block js %}
 
-function mostrar(){
-  swal({
-    title: "Registro Exitoso!",
-    text: "Usuario registrado correctamente!",
-    icon: "success",
-  });
-}
 
 {% endblock js %}

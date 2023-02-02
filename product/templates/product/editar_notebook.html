@@ -121,7 +121,7 @@ login {
       {% csrf_token %}
       {{ form.as_p }}
       <div style="text-align: center;">
-        <button type="submit" value="Enviar" class="buttonShadow" onclick="notebook()" >Enviar</button>
+        <button type="submit" value="Enviar" class="buttonShadow"  >Enviar</button>
       </div>
       
     </form>
@@ -142,15 +142,3 @@ login {
 {% endblock contenido %}
 
 
-{% block js %}
-
-function notebook(){
-  swal({
-    title: "Actualización exitosa!",
-    text: "El producto se ha actualizado correctamente!",
-    icon: "success",
-    confirmButtonText: "Aceptar"
-  });
-}
-
-{% endblock js %}
